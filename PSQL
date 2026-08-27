@@ -1,0 +1,31 @@
+* GUI Tools (Graphical User Interface): Programs like pgAdmin or DBeaver provide a visual interface with buttons and 
+to interact with the PostgreSQL database.
+
+Command Line Interface (CLI): Tools like psql allow you to directly type SQL commands and Postgres commands in the Terminal
+or Command Prompt.
+
+Why is there an emphasis on the Terminal?
+
+Learning the Terminal initially gives you a strong understanding of fundamental SQL commands without relying on a graphical interface.
+
+In real-world work environments (such as remote servers), you rarely have access to a GUI, making CLI knowledge essential.
+
+* Setting up psql and Environment Variables (Minutes 18:30 to 21:40)
+
+Accessing psql: On Windows, you can access the SQL Shell directly through the psql application or via Command Prompt / PowerShell.
+
+*****************************************************************************************************************************************
+How to Store Data : 
+1 - Strores data in table
+2 - Table consist of (Row & colomn)
+
+****************************************************************************************************************************************
+That is normal if 2 or more table have relationship between each other
+
+The best way for learning any database is by using the actual shell command line
+
+*****************************************************************************************************************************************
+* Use uppercase syntax for SQL command 
+
+CREATE DATABASE nameofdatabase;   // to create database
+\l   // to display all databases
