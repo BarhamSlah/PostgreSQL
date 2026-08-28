@@ -29,3 +29,31 @@ The best way for learning any database is by using the actual shell command line
 
 CREATE DATABASE nameofdatabase;   // to create database
 \l   // to display all databases
+
+**************************************************************************************************************************************
+1 - (psql --help) is a terminal command line flag. It can only be used in your operating system's command line 
+(PowerShell, Command Prompt, or Terminal) before opening PostgreSQL.
+
+
+2 - Inside the psql Shell (psql --help) this not work so instead of this line use one of those : 
+Use internal backslash meta-commands instead:
+
+1 - \? — Shows help for psql slash commands   &&   2 - \h — Shows help for SQL commands
+
+**************************************************************************************************************************************
+HOW TO CONNECT DATABASE 
+
+1 - In psql (\c nameofDB) 
+
+2 - Not psql (psql -h localhost -p 5432 -U postgres test)
+**************************************************************************************************************************************
+\dt   // List all tables in the test database:
+
+\conninfo   // Check connection details:
+
+ **************************************************************************************************************************************
+
+
+
+
+
