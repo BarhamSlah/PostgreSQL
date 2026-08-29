@@ -95,10 +95,10 @@ CREATE TABLE person (
 **************************************************************************************************************************************
 DATATYPES IN PSQL : 
 
-1 - Standard PostgreSQL practice for primary key IDs
+1 - Standard PostgreSQL practice for primary key IDs (9,223,372,036,854,775,807$)
 id BIGSERIAL PRIMARY KEY.
 
-2 - Standard PostgreSQL practice for primary key IDs
+2 - Standard PostgreSQL practice for primary key IDs (2,147,483,647)
 id BIGSERIAL PRIMARY KEY.
 
 3 - INT / INTEGER
@@ -109,6 +109,15 @@ Stores standard whole numbers without decimals.
 4 - BIGINT
 Stores huge whole numbers when INT is too small.
   views_count BIGINT
+
+
+Ranges: INT and SERIAL share the same range (up to 2.14 billion). BIGINT and BIGSERIAL share the same range (up to 9.22 quintillion).
+
+INT / BIGINT: You must provide the number manually in your INSERT statement. PostgreSQL will never auto-generate values for them.
+
+SERIAL / BIGSERIAL: You do not need to provide a number because PostgreSQL automatically generates it by default.
+However, if you choose to enter a number manually, PostgreSQL will process it normally.
+
 
 5 - VARCHAR(n)
 Stores text up to a fixed maximum length (n).
