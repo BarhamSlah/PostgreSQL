@@ -51,8 +51,14 @@ HOW TO CONNECT DATABASE
 
 \conninfo   // Check connection details:
 
- **************************************************************************************************************************************
+**************************************************************************************************************************************
+HOW TO DELETE DATABASE :
 
+DROP DATABASE NAMEOFDATABASE;   // by this line the database will gone
+
+when you can do that ? 1- if you are not already in the database on psql or powershell ...etc  &&  2- disconnect with IDE (stop button)
+
+when you can back this database ? if you backup it manually before 
 
 
 
