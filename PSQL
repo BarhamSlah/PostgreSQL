@@ -62,7 +62,7 @@ when you can do that ? 1- if you are not already in the database on psql or powe
 when you can back this database ? if you backup it manually before 
 
 **************************************************************************************************************************************
-HOW TO CREATE TABLE WITH CONSTRAINS : 
+HOW TO CREATE TABLE WITHOUT CONSTRAINS : 
 
 CREATE TABLE person (
     id INT,
@@ -72,4 +72,5 @@ CREATE TABLE person (
 );
 
 **************************************************************************************************************************************
+ 
 
