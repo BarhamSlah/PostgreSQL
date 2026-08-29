@@ -46,6 +46,7 @@ HOW TO CONNECT DATABASE
 1 - In psql (\c nameofDB) 
 
 2 - Not psql (psql -h localhost -p 5432 -U postgres test)
+
 **************************************************************************************************************************************
 \dt   // List all tables in the test database:
 
@@ -60,6 +61,15 @@ when you can do that ? 1- if you are not already in the database on psql or powe
 
 when you can back this database ? if you backup it manually before 
 
+**************************************************************************************************************************************
+HOW TO CREATE TABLE WITH CONSTRAINS : 
 
+CREATE TABLE person (
+    id INT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    birth_year INT
+);
 
+**************************************************************************************************************************************
 
