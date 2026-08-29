@@ -62,6 +62,15 @@ when you can do that ? 1- if you are not already in the database on psql or powe
 when you can back this database ? if you backup it manually before 
 
 **************************************************************************************************************************************
+HOW TO DELETE TABLE :
+
+DROP TABLE NAMEOFTABLE;   // by this line you will delete table 
+
+If you wanna delete table you should be in this database that table created in 
+
+If you wanna back it you should back up it manually       
+
+**************************************************************************************************************************************
 HOW TO CREATE TABLE WITHOUT CONSTRAINS : 
 
 CREATE TABLE person (
