@@ -93,3 +93,55 @@ CREATE TABLE person (
 );
 
 **************************************************************************************************************************************
+DATATYPES IN PSQL : 
+
+1 - Standard PostgreSQL practice for primary key IDs
+id BIGSERIAL PRIMARY KEY.
+
+2 - Standard PostgreSQL practice for primary key IDs
+id BIGSERIAL PRIMARY KEY.
+
+3 - INT / INTEGER
+Stores standard whole numbers without decimals.
+  stock_quantity INT,
+  user_age INTEGER
+
+4 - BIGINT
+Stores huge whole numbers when INT is too small.
+  views_count BIGINT
+
+5 - VARCHAR(n)
+Stores text up to a fixed maximum length (n).
+  username VARCHAR(30)
+
+6. TEXT
+Stores text of any length without any limit.
+    content TEXT
+
+7- BOOLEAN
+Stores true/false logic.
+  is_active BOOLEAN
+
+
+8. DATE
+Stores year, month, and day only (no time).
+    date_of_birth DATE
+Example value: '2005-04-15'
+
+9. TIMESTAMP
+Stores both date and exact time.
+    created_at TIMESTAMP
+Example value: '2026-08-29 15:30:45'
+
+10. NUMERIC / DECIMAL
+Stores exact decimals for money so there are no rounding errors.
+    price NUMERIC(8, 2) -- 8 digits total, 2 after the decimal point
+Example value: 29.99
+
+**************************************************************************************************************************************
+
+
+
+
+
+
