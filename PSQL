@@ -156,6 +156,13 @@ HOW TO INSERT DATA TO TABLE :
  VALUES ('Barham' , 'Slah' , '2007-11-04' , 'barham@gmail.com');
 
 **************************************************************************************************************************************
+HOW TO DISPLAY TABLE INFO : 
 
+SELECT * FROM person;
+
+SELECT * : means "select all columns".
+FROM person : tells PostgreSQL which table to retrieve the data from.
+
+**************************************************************************************************************************************
 
 
