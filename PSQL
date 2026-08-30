@@ -164,5 +164,12 @@ SELECT * : means "select all columns".
 FROM person : tells PostgreSQL which table to retrieve the data from.
 
 **************************************************************************************************************************************
+AFTER CREATE TABLE IN MACKAROO : 
 
+1 - You can change it in the IDE or NotePad
 
+2- In PowerShell write this line  (psql -U postgres -d postgres -f "$env:USERPROFILE\Downloads\person.sql")
+postgres - name of DB
+person - name of TABLE
+
+**************************************************************************************************************************************
