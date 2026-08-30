@@ -191,4 +191,10 @@ DISTINCT :
 SELECT DISTINCT name FROM school ORDER BY name;  // THIS WILL REMOVE DUPLICATE OUTPUT
 
 **************************************************************************************************************************************
+WHERE & AND 
 
+SELECT * FROM school WHERE (location = 'China' OR location = 'Japan') AND name = 'Jim';
+SELECT * FROM school WHERE location = 'China' OR location = 'Japan';
+SELECT * FROM school WHERE gender = 'Female';
+
+**************************************************************************************************************************************
