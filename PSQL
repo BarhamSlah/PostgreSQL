@@ -158,7 +158,9 @@ HOW TO INSERT DATA TO TABLE :
 **************************************************************************************************************************************
 HOW TO DISPLAY TABLE INFO : 
 
-SELECT * FROM person;
+SELECT * FROM person;  // to display all data
+SELECT the data you want FROM person;
+the data you want can be more than one but it should be separate by , 
 
 SELECT * : means "select all columns".
 FROM person : tells PostgreSQL which table to retrieve the data from.
