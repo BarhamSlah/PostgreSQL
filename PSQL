@@ -188,7 +188,7 @@ DESC : END TILL BEGIN / LARGE TO SMALL
 **************************************************************************************************************************************
 DISTINCT : 
 
-SELECT DISTINCT FROM school ORDER BY name;  // THIS WILL REMOVE DUPLICATE OUTPUT
+SELECT DISTINCT name FROM school ORDER BY name;  // THIS WILL REMOVE DUPLICATE OUTPUT
 
 **************************************************************************************************************************************
 
