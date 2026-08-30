@@ -175,3 +175,15 @@ postgres - name of DB
 person - name of TABLE
 
 **************************************************************************************************************************************
+ORDER BY : 
+
+SELECT * FROM school ORDER BY name;
+SELECT * FROM school ORDER BY name DESC;
+SELECT * FROM school ORDER BY name ASC;
+SELECT * FROM school ORDER BY name DESC , student ASC;
+SELECT * FROM school ORDER BY name DESC , student DESC;
+ASC : BEGIN TILL END / SMALL TO LARGE
+DESC : END TILL BEGIN / LARGE TO SMALL
+
+**************************************************************************************************************************************
+
