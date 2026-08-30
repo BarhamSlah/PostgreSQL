@@ -198,3 +198,10 @@ SELECT * FROM school WHERE location = 'China' OR location = 'Japan';
 SELECT * FROM school WHERE gender = 'Female';
 
 **************************************************************************************************************************************
+COMPARASION OPERATORS : 
+
+ 1 >= 1  -- THIS IS TRUE
+
+1 <> 1  -- THIS IS FALSE (<> THIS IS MEANS NOT EQUAL)
+
+**************************************************************************************************************************************
