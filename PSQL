@@ -205,3 +205,12 @@ COMPARASION OPERATORS :
 1 <> 1  -- THIS IS FALSE (<> THIS IS MEANS NOT EQUAL)
 
 **************************************************************************************************************************************
+LIMIT & OFFSET & FETCH
+
+test=# SELECT * FROM person LIMIT 5;  // THIS WILL DISPLAY ONLY 5 ROWS
+test=# SELECT * FROM person OFFSET 5 LIMIT 5; // THIS WILL PASS FIRST 5 ROWS AND AFTER THAT WILL DISPLAY THE NEXT 5 ROWS
+test=# SELECT * FROM person OFFSET 5 FETCH FIRST 5 ROW ONLY; //// THIS WILL PASS FIRST 5 ROWS AND AFTER THAT WILL DISPLAY THE NEXT 5 ROWS 
+test=# SELECT * FROM person LIMIT 5;  == SELECT * FROM person FETCH FIRST 5 ROWS ONLY;
+FETCH standard; LIMIT non-standard shortcut.
+
+*************************************************************************************************************************************
