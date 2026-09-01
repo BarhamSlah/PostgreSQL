@@ -224,6 +224,13 @@ BETWEEN :
 
 SELECT * FROM school WHERE found BETWEEN '2019' AND '2026';
 *************************************************************************************************************************************
+LIKE
 
+%  -- Each character
 
+SELECT * FROM school WHERE found LIKE '19%';  -- USE THIS FOR STRING
+
+SELECT * FROM school WHERE found::text LIKE '19%';  -- USE THIS FOR NOT STRING 
+
+*************************************************************************************************************************************
 
