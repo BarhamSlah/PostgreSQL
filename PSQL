@@ -232,5 +232,7 @@ SELECT * FROM school WHERE found LIKE '19%';  -- USE THIS FOR STRING
 
 SELECT * FROM school WHERE found::text LIKE '19%';  -- USE THIS FOR NOT STRING 
 
+SELECT * FROM school WHERE name LIKE '_____' ORDER BY name ;
+
 *************************************************************************************************************************************
 
