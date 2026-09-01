@@ -240,3 +240,8 @@ GROUP BY :
 SELECT location , COUNT (*) FROM school GROUP BY location ORDER BY count DESC;
 
 *************************************************************************************************************************************
+HAVING COUNT : the task of this count
+
+SELECT location , COUNT (*) FROM school GROUP BY location HAVING COUNT (*) > 5 ORDER BY count DESC ;
+
+*************************************************************************************************************************************
