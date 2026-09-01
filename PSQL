@@ -235,4 +235,8 @@ SELECT * FROM school WHERE found::text LIKE '19%';  -- USE THIS FOR NOT STRING
 SELECT * FROM school WHERE name LIKE '_____' ORDER BY name ;
 
 *************************************************************************************************************************************
+GROUP BY : 
 
+SELECT location , COUNT (*) FROM school GROUP BY location ORDER BY count DESC;
+
+*************************************************************************************************************************************
