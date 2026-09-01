@@ -214,3 +214,11 @@ test=# SELECT * FROM person LIMIT 5;  == SELECT * FROM person FETCH FIRST 5 ROWS
 FETCH standard; LIMIT non-standard shortcut.
 
 *************************************************************************************************************************************
+IN 
+IN use for reduce duplication -- 
+This is not standard **  SELECT location , name  FROM school WHERE (location = 'Brazil' OR location = 'China') ORDER BY location;
+this is standard ** SELECT location , name  FROM school WHERE location IN ('Brazil' , 'China') ORDER BY location;
+
+*************************************************************************************************************************************
+
+
