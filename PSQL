@@ -220,5 +220,10 @@ This is not standard **  SELECT location , name  FROM school WHERE (location = '
 this is standard ** SELECT location , name  FROM school WHERE location IN ('Brazil' , 'China') ORDER BY location;
 
 *************************************************************************************************************************************
+BETWEEN : 
+
+SELECT * FROM school WHERE found BETWEEN '2019' AND '2026';
+*************************************************************************************************************************************
+
 
 
