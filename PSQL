@@ -245,3 +245,12 @@ HAVING COUNT : the task of this count
 SELECT location , COUNT (*) FROM school GROUP BY location HAVING COUNT (*) > 5 ORDER BY count DESC ;
 
 *************************************************************************************************************************************
+AVG - MIN - MAX : 
+
+SELECT * FROM car;
+SELECT MAX(price) FROM car;
+SELECT MIN(price) FROM car;
+SELECT AVG(price) FROM car;
+SELECT ROUND(AVG(price)) FROM car;
+
+*************************************************************************************************************************************
