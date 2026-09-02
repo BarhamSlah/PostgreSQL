@@ -251,6 +251,6 @@ SELECT * FROM car;
 SELECT MAX(price) FROM car;
 SELECT MIN(price) FROM car;
 SELECT AVG(price) FROM car;
-SELECT ROUND(AVG(price)) FROM car;
+SELECT ROUND(AVG(price)) FROM car;  -- THIS ROUND IS USE TO REMOVE DECIMAL POINT   254.2 >> 254
 
 *************************************************************************************************************************************
