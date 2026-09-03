@@ -245,12 +245,17 @@ HAVING COUNT : the task of this count
 SELECT location , COUNT (*) FROM school GROUP BY location HAVING COUNT (*) > 5 ORDER BY count DESC ;
 
 *************************************************************************************************************************************
-AVG - MIN - MAX : 
+AVG - MIN - MAX - SUM : 
 
 SELECT * FROM car;
 SELECT MAX(price) FROM car;
 SELECT MIN(price) FROM car;
 SELECT AVG(price) FROM car;
+SELECT SUM(price) FROM CAR;
 SELECT ROUND(AVG(price)) FROM car;  -- THIS ROUND IS USE TO REMOVE DECIMAL POINT   254.2 >> 254
 
 *************************************************************************************************************************************
+
+
+*************************************************************************************************************************************
+
