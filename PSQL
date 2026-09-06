@@ -336,6 +336,13 @@ SELECT NOW() + INTERVAL '10 DAYS';
 SELECT (NOW() + INTERVAL '10 MONTHS')::DATE;
 
 *************************************************************************************************************************************
+ECTRACT : 
+
+SELECT EXTRACT(YEAR FROM NOW());
+SELECT EXTRACT(MONTH FROM NOW());
+SELECT EXTRACT(DAY FROM NOW());
+SELECT EXTRACT(DOW FROM NOW());  -- DAYS OF WEEK
+SELECT EXTRACT(CENTURY FROM NOW());
 
 *************************************************************************************************************************************
 
