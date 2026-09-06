@@ -282,3 +282,18 @@ AS : TO RENAME COLOMN
 
  SELECT id ,  make , model , price as orginal ,  ROUND(price * 0.95) AS " 5% discount ",  ROUND(price * 0.05) AS "Money Back " FROM car ORDER BY price DESC;
 *************************************************************************************************************************************
+COALESCE : 
+
+Yes, exact data types must match inside COALESCE(). Every argument inside COALESCE(...) must have the same or compatible data type.
+
+SELECT COALESCE(number, 0) FROM car;
+
+SELECT COALESCE(email, 'Email not provided') FROM person;
+
+SELECT COALESCE(number::text, 'No number provided') AS number FROM car;
+
+*************************************************************************************************************************************
+
+
+
+*************************************************************************************************************************************
