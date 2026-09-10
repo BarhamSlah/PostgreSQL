@@ -357,6 +357,11 @@ But first, the existing data must have:
 
 ALTER TABLE person
 DROP CONSTRAINT person_pkey;
+// after running this if the output is ALTER TABLE it means running successfully
+
+1- Existing Data is Clean: PostgreSQL checked all current rows and confirmed there are no duplicate emails in the person table right now.
+
+2- Future Duplicates Blocked: If anyone tries to INSERT or UPDATE a row with an email that already exists, PostgreSQL will reject it and throw an error.
 
 But usually, you should not remove a Primary Key unless you have a good reason.
 
