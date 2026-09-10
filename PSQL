@@ -364,6 +364,22 @@ ALTER TABLE person
 ADD PRIMARY KEY (id);
 
 *************************************************************************************************************************************
+UNIQUE : 
+
+ALTER TABLE person
+ADD CONSTRAINT unique_email_address UNIQUE (email);
+
+UNIQUE (email)
+Means:
+No two rows can have the same email.
+
+The email already exists twice.
+A UNIQUE constraint requires existing values to be unique before you can add the constraint.
+
+
+One important difference from PRIMARY KEY:
+PRIMARY KEY → Unique + cannot be NULL
+UNIQUE → Prevents duplicate values
 
 *************************************************************************************************************************************
 
