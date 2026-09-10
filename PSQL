@@ -382,6 +382,16 @@ PRIMARY KEY → Unique + cannot be NULL
 UNIQUE → Prevents duplicate values
 
 *************************************************************************************************************************************
+CHECK Constraint : 
+
+ALTER TABLE person
+ADD CONSTRAINT gender_constraint
+CHECK (gender = 'Female' OR gender = 'Male');
+
+
+Only these values are allowed:
+✅ Female
+✅ Male
 
 *************************************************************************************************************************************
 
