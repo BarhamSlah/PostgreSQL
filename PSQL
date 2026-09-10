@@ -345,6 +345,23 @@ SELECT EXTRACT(DOW FROM NOW());  -- DAYS OF WEEK
 SELECT EXTRACT(CENTURY FROM NOW());
 
 *************************************************************************************************************************************
+PRIMARY KEY :
+
+A Primary Key requires every value to be unique.
+
+You can add a Primary Key
+But first, the existing data must have:
+
+✅ No duplicate values
+✅ No NULL values
+
+ALTER TABLE person
+DROP CONSTRAINT person_pkey;
+
+But usually, you should not remove a Primary Key unless you have a good reason.
+
+ALTER TABLE person
+ADD PRIMARY KEY (id);
 
 *************************************************************************************************************************************
 
