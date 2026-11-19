@@ -93,3 +93,33 @@ Then connect to it:
 - [ ] I can list databases and connect to one.
 - [ ] I can identify the current database and user.
 - [ ] I can exit and reconnect.
+## Understand what happens when you connect
+
+A PostgreSQL server can host many databases. A role (user) logs in to the server, and your session connects to one database. You run SQL through the psql client; psql sends it to the server and displays the result.
+
+```text
+You → SQL Shell (psql) → PostgreSQL server → selected database
+                         ← query result ←
+```
+
+**Important:** Pressing Enter at a SQL Shell connection question accepts its displayed default. It does not mean every default is always correct. The server, port, username and database must match your installation.
+
+### Read the first queries
+
+| Query | What the returned value tells you |
+|---|---|
+| `SELECT version();` | PostgreSQL version and build information |
+| `SELECT current_database();` | Database selected for this session |
+| `SELECT current_user;` | Role used by this connection |
+| `SELECT now();` | Current date and time according to the server |
+
+### Extra psql commands worth knowing
+
+| Command | Meaning |
+|---|---|
+| `\\! cls` | Clear the Windows terminal screen |
+| `\\r` | Clear an unfinished SQL query from psql's buffer |
+| `\\timing` | Toggle query execution timing |
+| `\\x` | Toggle expanded display for wide rows |
+
+Do not confuse clearing the screen (`\\! cls`) with clearing an unfinished query (`\\r`).
