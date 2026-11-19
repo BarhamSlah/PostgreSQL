@@ -107,3 +107,35 @@ Practice backup and restore only with a test database and follow the installed P
 - [ ] I understand the basic purpose and cost of an index.
 - [ ] I know what EXPLAIN is for.
 - [ ] I know the difference between SQL backup tools and psql commands.
+## Understand schema changes
+
+A table's schema is its structure: column names, types and constraints. ALTER TABLE changes that structure. It is different from UPDATE, which changes the values stored in rows.
+
+Before dropping a column, remember that its stored values are removed too.
+
+## Understand transactions
+
+A transaction groups database operations into one unit.
+
+```text
+BEGIN → run changes → COMMIT
+                  ↘ ROLLBACK (cancel the uncommitted changes)
+```
+
+- BEGIN starts the transaction.
+- COMMIT makes its changes permanent.
+- ROLLBACK cancels its uncommitted changes.
+
+For example, a money transfer needs both the withdrawal and deposit to succeed together. A transaction helps prevent only one side of the transfer from being committed.
+
+## Understand indexes
+
+An index is an additional data structure that can help PostgreSQL find matching rows without scanning every row. It can speed up some reads, but it uses disk space and adds work to INSERT, UPDATE and DELETE. Do not create an index on every column automatically.
+
+## EXPLAIN
+
+EXPLAIN shows the plan PostgreSQL intends to use for a query. It does not normally execute the query. EXPLAIN ANALYZE does execute it and reports actual timing, so use that carefully with statements that change data.
+
+## Backup tools are not SQL commands
+
+pg_dump and pg_restore are operating-system command-line tools. Run them in Windows Command Prompt or PowerShell (or another terminal), not as SQL statements inside the psql prompt. The exact command depends on the backup format, database name and installation paths.
