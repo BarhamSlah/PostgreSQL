@@ -64,3 +64,32 @@ Try to complete the projects without following a video step by step. Looking up 
 - [ ] I can summarize data with GROUP BY.
 - [ ] I can use transactions safely.
 - [ ] I can explain the purpose of my constraints.
+## How to approach a project
+
+Do not begin by writing every query at once. Design the data first:
+
+1. Identify the nouns (for example, customers, accounts and transactions). These usually become tables.
+2. Decide what uniquely identifies each row. This becomes the primary key.
+3. Identify how tables connect. Put foreign keys on the many side or use a junction table for many-to-many.
+4. Choose data types and constraints.
+5. Create parent tables before child tables.
+6. Insert a small amount of test data.
+7. Test each query separately, then combine queries with JOIN and GROUP BY.
+
+## Suggested order for Project B (banking)
+
+Create customers first, accounts second, and transactions third. This order matters because accounts refer to customers, and transactions refer to accounts.
+
+For the transfer exercise, use BEGIN, subtract from the sender, add to the receiver, and COMMIT only after checking that both operations affected the intended account. Test with ROLLBACK before committing. This is a learning exercise, not production banking logic.
+
+## How to check your project
+
+For every requirement, ask:
+- Does the table contain the right columns?
+- Are primary keys and foreign keys correct?
+- Can invalid data enter?
+- Does the query return the expected rows?
+- What happens when related data is missing?
+- Have I tested the query with more than one record?
+
+There is no single correct naming style for every project. What matters is consistent names, valid relationships, and queries that return the intended result.
