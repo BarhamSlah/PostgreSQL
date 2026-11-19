@@ -56,7 +56,7 @@ Times are estimates. Spend extra time on a difficult topic instead of rushing.
 | **psql** | A command-line client for PostgreSQL | A terminal tool to send SQL commands |
 | **pgAdmin 4** | A graphical client for PostgreSQL | A visual tool to manage the database |
 
-SQL and psql are not the same. SQL statements usually end with `;`. psql meta-commands start with `\\` and usually do not need a semicolon.
+SQL and psql are not the same. SQL statements usually end with `;`. psql meta-commands start with `\` and usually do not need a semicolon.
 
 ## Your practice database
 
@@ -69,7 +69,7 @@ CREATE DATABASE postgres_learning;
 Connect to it in psql:
 
 ```text
-\\c postgres_learning
+\c postgres_learning
 ```
 
 Keep your exercises inside this database. Do not practise destructive commands on important databases.
@@ -102,8 +102,8 @@ When a query fails, do not immediately rewrite everything.
 3. Check spelling of table and column names.
 4. Check quotes: text values use single quotes, such as `'Sara'`.
 5. Check that SQL statements end with `;`.
-6. Check that the table exists in the database you are connected to: use `\\dt`.
-7. Check the table structure: use `\\d table_name`.
+6. Check that the table exists in the database you are connected to: use `\dt`.
+7. Check the table structure: use `\d table_name`.
 8. Fix one problem, run the query again, and read the new result.
 
 ### Common psql situations
@@ -111,13 +111,13 @@ When a query fails, do not immediately rewrite everything.
 | What you see | Meaning | What to do |
 |---|---|---|
 | `postgres_learning=#` | Ready for a command | Type SQL or a psql command |
-| `postgres_learning-#` | The previous SQL statement is incomplete | Finish it with `;`, or cancel the query with `\\r` |
-| `relation does not exist` | Table name is wrong, or table is not in the current schema | Check `\\dt`, spelling and current database |
-| `column does not exist` | Column name is wrong or unavailable in that query | Check `\\d table_name` |
+| `postgres_learning-#` | The previous SQL statement is incomplete | Finish it with `;`, or cancel the query with `\r` |
+| `relation does not exist` | Table name is wrong, or table is not in the current schema | Check `\dt`, spelling and current database |
+| `column does not exist` | Column name is wrong or unavailable in that query | Check `\d table_name` |
 | `syntax error` | SQL structure is invalid | Check the reported position, commas, quotes and keywords |
 | `password authentication failed` | PostgreSQL rejected the role/password combination | Check the PostgreSQL username and its password |
 
-On Windows, clear the psql screen with `\\! cls`. Clear the unfinished query buffer with `\\r`. They do different things.
+On Windows, clear the psql screen with `\! cls`. Clear the unfinished query buffer with `\r`. They do different things.
 
 ## What you should be able to do at the end
 
