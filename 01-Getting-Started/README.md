@@ -117,9 +117,9 @@ You → SQL Shell (psql) → PostgreSQL server → selected database
 
 | Command | Meaning |
 |---|---|
-| `\\! cls` | Clear the Windows terminal screen |
-| `\\r` | Clear an unfinished SQL query from psql's buffer |
-| `\\timing` | Toggle query execution timing |
-| `\\x` | Toggle expanded display for wide rows |
+| `\! cls` | Clear the Windows terminal screen |
+| `\r` | Clear an unfinished SQL query from psql's buffer |
+| `\timing` | Toggle query execution timing |
+| `\x` | Toggle expanded display for wide rows |
 
-Do not confuse clearing the screen (`\\! cls`) with clearing an unfinished query (`\\r`).
+Do not confuse clearing the screen (`\! cls`) with clearing an unfinished query (`\r`).
