@@ -72,3 +72,41 @@ Use try-with-resources so Connection, PreparedStatement, and ResultSet are close
 - [ ] I can explain why PreparedStatement is important.
 - [ ] I know executeQuery vs executeUpdate.
 - [ ] I do not publish database credentials.
+## Understand the connection flow
+
+```text
+Java application
+      |
+      | JDBC API
+      v
+PostgreSQL JDBC driver (pgJDBC)
+      |
+      v
+PostgreSQL database
+```
+
+JDBC is the Java API; pgJDBC is the driver that lets Java communicate with PostgreSQL. You need both: JDBC types in your Java code and the PostgreSQL driver dependency in your project.
+
+## Understand the three most-used JDBC objects
+
+- **Connection:** an active connection to the database.
+- **PreparedStatement:** a SQL statement with placeholders for values.
+- **ResultSet:** the rows returned by a query such as SELECT.
+
+### Why the question mark matters
+
+In `WHERE email = ?`, the question mark is a parameter placeholder. Calling `setString(1, email)` supplies the first parameter. The value is sent separately from the SQL structure, which helps prevent SQL injection and handles quoting safely.
+
+Do not build SQL by joining user input into the query string.
+
+## Choose the execution method
+
+| Method | Use it for | What it returns |
+|---|---|---|
+| executeQuery() | A query that returns rows, usually SELECT | ResultSet |
+| executeUpdate() | INSERT, UPDATE, DELETE and many DDL statements | Number of affected rows (or 0 for statements without a row count) |
+| execute() | When the result type may vary | A boolean indicating whether the first result is a ResultSet |
+
+## Keep credentials private
+
+Never commit real passwords, API keys or private connection strings to GitHub. Use environment variables or a secure configuration method. If a password was accidentally committed, changing the file later does not make the old secret safe; rotate the exposed credential.
