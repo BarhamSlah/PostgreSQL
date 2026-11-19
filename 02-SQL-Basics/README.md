@@ -95,3 +95,41 @@ Create the `students` table above, then:
 - [ ] I can update one row safely.
 - [ ] I can delete one row safely.
 - [ ] I understand DELETE vs TRUNCATE vs DROP.
+## Understand the four CRUD operations
+
+CRUD is a short name for the four basic actions performed on stored data.
+
+| Action | SQL command | Everyday meaning |
+|---|---|---|
+| Create | INSERT | Add a new row |
+| Read | SELECT | View rows |
+| Update | UPDATE | Change existing rows |
+| Delete | DELETE | Remove rows |
+
+### Understand the CREATE TABLE example
+
+- `CREATE TABLE students`: make a new table named students.
+- `student_id ... PRIMARY KEY`: give every student a unique identifier.
+- `GENERATED ALWAYS AS IDENTITY`: let PostgreSQL generate the identifier.
+- `full_name VARCHAR(100) NOT NULL`: store a name up to 100 characters; it cannot be missing.
+- `email VARCHAR(150) UNIQUE`: do not allow duplicate non-NULL email values.
+- `age INTEGER`: store a whole number.
+- `DEFAULT CURRENT_TIMESTAMP`: fill created_at with the current timestamp when you omit it.
+
+### Understand INSERT
+
+The column list tells PostgreSQL which columns receive the supplied values. The first value goes into the first named column, the second into the second, and so on.
+
+After an INSERT, psql usually displays a message such as `INSERT 0 2`. The final number means two rows were inserted.
+
+### Understand SELECT
+
+`SELECT *` means return every column. `SELECT full_name, email` returns only those two columns. SELECT does not change the stored data.
+
+### Understand UPDATE and DELETE
+
+The WHERE condition chooses the rows to change or remove. If you omit WHERE, every row in the table is affected. This is why checking the matching rows with SELECT first is an essential habit.
+
+### Check your work
+
+After each action, run `SELECT * FROM students ORDER BY student_id;`. Compare the rows with what you expected. If the result differs, inspect the WHERE condition and the values you supplied.
