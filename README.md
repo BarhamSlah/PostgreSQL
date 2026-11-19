@@ -1,115 +1,152 @@
-# PostgreSQL Practical Learning
+# PostgreSQL — Learn It Without Needing an AI Explanation
 
-A hands-on, beginner-friendly path to using **PostgreSQL and the `psql` command-line tool** confidently for everyday database work and Java backend projects.
+A practical, step-by-step guide to learning **SQL, PostgreSQL, and the psql terminal** for everyday database work and Java backend development.
 
-> **Target:** 30–35 focused hours. This is a practical foundation, not a database-administrator course and not a guarantee of job readiness.
+**This repository is designed to teach each topic by itself.** You should not need to search for another explanation every time you meet a new command. Each lesson explains what a concept means, why it exists, how to use it, what to expect, common mistakes, and how to practise it.
 
-## How to study
+> **Target:** About 35 focused hours. This is an everyday SQL/PostgreSQL foundation, not an advanced database-administration course.
 
-Study in repository order. For each lesson:
+## Start here
 
-1. Read the explanation and understand the purpose.
-2. Open **SQL Shell (psql)** and connect to your practice database.
-3. Type and run the examples yourself. Do not only read or copy them.
-4. Complete the exercises without looking at solutions.
-5. Check the lesson checklist before moving on.
-6. Use a video only when you need another explanation of a specific topic.
+1. Open [Part 01 — Getting Started](./01-Getting-Started/README.md).
+2. Follow the lessons in order. Later lessons use ideas from earlier ones.
+3. Keep SQL Shell (psql) open and use the practice database `postgres_learning`.
+4. Read the explanation before running each command.
+5. Run the example, compare your result with the expected result, then try the exercise.
+6. Do not move on just because you watched or read the lesson. Move on when you can explain what the query does in simple words.
 
-**Suggested pace:** 45–60 minutes per study session. You can spend more than one session on a difficult lesson. Understanding matters more than finishing quickly.
+## What every lesson should teach you
+
+For each important command or concept, look for these six things:
+
+| Part | Question it answers |
+|---|---|
+| Meaning | What is it? |
+| Purpose | Why do we need it? |
+| Syntax | What is the general command structure? |
+| Example | How do I use it in a real query? |
+| Result | What should I expect to happen? |
+| Mistakes | What commonly goes wrong, and how do I fix it? |
+
+If you cannot explain a command yet, return to its **Meaning** and **Example** sections. You do not need to memorize every syntax detail.
 
 ## Learning roadmap
 
 | Part | Topic | Target time |
 |---|---|---:|
-| [01](./01-Getting-Started/README.md) | Getting started: PostgreSQL, psql, connecting, navigation | 2 hours |
-| [02](./02-SQL-Basics/README.md) | Create tables and CRUD | 4 hours |
-| [03](./03-Filtering-and-Sorting/README.md) | WHERE, operators, sorting, limits | 3 hours |
-| [04](./04-Data-Types-and-Constraints/README.md) | Data types, keys, constraints, NULL | 3 hours |
+| [01](./01-Getting-Started/README.md) | PostgreSQL, SQL, psql, connection and navigation | 2 hours |
+| [02](./02-SQL-Basics/README.md) | Tables and CRUD: INSERT, SELECT, UPDATE, DELETE | 4 hours |
+| [03](./03-Filtering-and-Sorting/README.md) | WHERE, operators, text search, NULL, sorting | 3 hours |
+| [04](./04-Data-Types-and-Constraints/README.md) | Data types, primary/foreign keys and constraints | 3 hours |
 | [05](./05-Relationships-and-Joins/README.md) | Relationships and JOINs | 5 hours |
-| [06](./06-Aggregation/README.md) | Aggregate functions, GROUP BY, HAVING | 2 hours |
-| [07](./07-Useful-Query-Techniques/README.md) | CASE, subqueries, CTE introduction | 2 hours |
-| [08](./08-Everyday-Database-Management/README.md) | ALTER, transactions, indexes, backup basics | 4 hours |
-| [09](./09-Practical-Projects/README.md) | Build and query realistic databases | 6 hours |
-| [10](./10-PostgreSQL-with-Java/README.md) | JDBC and safe database access | 4 hours |
-| | **Total** | **35 hours** |
+| [06](./06-Aggregation/README.md) | COUNT, SUM, AVG, GROUP BY and HAVING | 2 hours |
+| [07](./07-Useful-Query-Techniques/README.md) | CASE, COALESCE, subqueries and CTEs | 2 hours |
+| [08](./08-Everyday-Database-Management/README.md) | ALTER, transactions, indexes and backup basics | 4 hours |
+| [09](./09-Practical-Projects/README.md) | Practical database projects | 6 hours |
+| [10](./10-PostgreSQL-with-Java/README.md) | JDBC and connecting PostgreSQL to Java | 4 hours |
 
-Times are estimates. Repeat exercises when needed.
+Times are estimates. Spend extra time on a difficult topic instead of rushing.
 
-## Important: SQL vs psql
+## First understand these four names
 
-They are related, but they are not the same:
+| Name | What it is | Simple comparison |
+|---|---|---|
+| **SQL** | A query language for relational databases | The language you use |
+| **PostgreSQL** | A relational database management system (RDBMS) | The database system |
+| **psql** | A command-line client for PostgreSQL | A terminal tool to send SQL commands |
+| **pgAdmin 4** | A graphical client for PostgreSQL | A visual tool to manage the database |
 
-- **PostgreSQL** is the database system.
-- **SQL** is the language used to create, read, change, and delete data.
-- **psql** is a terminal program for connecting to PostgreSQL and running SQL.
-- **pgAdmin 4** is a graphical tool for working with PostgreSQL.
+SQL and psql are not the same. SQL statements usually end with `;`. psql meta-commands start with `\\` and usually do not need a semicolon.
 
-Examples of psql meta-commands (they start with a backslash):
+## Your practice database
 
-| Command | What it does |
-|---|---|
-| `\l` | List databases |
-| `\c database_name` | Connect to a database |
-| `\dt` | List tables in the current search path |
-| `\d table_name` | Describe a table |
-| `\dn` | List schemas |
-| `\du` | List roles/users |
-| `\conninfo` | Show connection information |
-| `\q` | Exit psql |
-| `\?` | Help for psql commands |
-| `\h SELECT` | Help for SQL syntax |
+Use one separate database for all lessons:
 
-A psql command is not SQL: do not add a semicolon to commands such as `\dt`.
+```sql
+CREATE DATABASE postgres_learning;
+```
 
-## Practice database
+Connect to it in psql:
 
-Use one small database throughout the lessons so the examples connect together.
+```text
+\\c postgres_learning
+```
 
-1. Create a database named `postgres_learning`.
-2. Follow Part 02 to create the first tables.
-3. Use the same tables for filtering, JOINs, aggregation, and projects.
-4. Keep practice data separate from real or important databases.
+Keep your exercises inside this database. Do not practise destructive commands on important databases.
 
-Before running `UPDATE` or `DELETE`, first run a SELECT with the same WHERE condition to confirm which rows will be affected.
+## How to understand a SQL query
+
+Read a query from the data source to the result:
+
+```sql
+SELECT full_name, age
+FROM students
+WHERE age >= 18
+ORDER BY age DESC;
+```
+
+- `SELECT full_name, age`: choose which columns to display.
+- `FROM students`: get the data from the students table.
+- `WHERE age >= 18`: keep only rows where age is at least 18.
+- `ORDER BY age DESC`: show the highest ages first.
+- `;`: finish the SQL statement.
+
+Think of a query as a question you ask the database. The database returns the rows that match that question.
+
+## A simple method for fixing errors
+
+When a query fails, do not immediately rewrite everything.
+
+1. Read the complete error message.
+2. Find the line and position mentioned by PostgreSQL.
+3. Check spelling of table and column names.
+4. Check quotes: text values use single quotes, such as `'Sara'`.
+5. Check that SQL statements end with `;`.
+6. Check that the table exists in the database you are connected to: use `\\dt`.
+7. Check the table structure: use `\\d table_name`.
+8. Fix one problem, run the query again, and read the new result.
+
+### Common psql situations
+
+| What you see | Meaning | What to do |
+|---|---|---|
+| `postgres_learning=#` | Ready for a command | Type SQL or a psql command |
+| `postgres_learning-#` | The previous SQL statement is incomplete | Finish it with `;`, or cancel the query with `\\r` |
+| `relation does not exist` | Table name is wrong, or table is not in the current schema | Check `\\dt`, spelling and current database |
+| `column does not exist` | Column name is wrong or unavailable in that query | Check `\\d table_name` |
+| `syntax error` | SQL structure is invalid | Check the reported position, commas, quotes and keywords |
+| `password authentication failed` | PostgreSQL rejected the role/password combination | Check the PostgreSQL username and its password |
+
+On Windows, clear the psql screen with `\\! cls`. Clear the unfinished query buffer with `\\r`. They do different things.
 
 ## What you should be able to do at the end
 
-- Connect to a PostgreSQL server using psql.
-- Create databases and relational tables.
-- Insert, read, update, and delete records safely.
+- Connect to PostgreSQL with psql.
+- Create databases and tables.
+- Insert, read, update and delete records.
 - Filter and sort query results.
-- Use primary keys, foreign keys, and common constraints.
-- Write INNER JOIN and LEFT JOIN queries.
-- Group data and calculate totals and averages.
-- Make basic schema changes.
-- Use transactions and understand when indexes help.
-- Build a small database project and connect it to Java using JDBC.
+- Use data types, primary keys, foreign keys and constraints.
+- Join related tables.
+- Calculate totals, counts and averages.
+- Make basic table changes.
+- Use transactions safely and understand basic indexes.
+- Build a small database and connect it to Java with JDBC.
 
-## What is intentionally not a priority
+## What you can ignore for now
 
-Do not spend your first learning hours on replication, high availability, deep server tuning, complex query-plan optimization, stored-procedure programming, or database administration. These topics can wait until a real project requires them.
-
-## Learning rules
-
-- Type SQL yourself in psql.
-- Use clear table and column names.
-- End SQL statements with a semicolon.
-- Use single quotes for text values.
-- Never use UPDATE or DELETE without checking the WHERE condition.
-- Do not memorize every command; learn how to find and use the right command.
-- If something fails, read the full error message and identify the line/column or object involved.
+Do not spend your first learning hours on replication, high availability, deep server tuning, complex query-plan optimization, advanced stored procedures, or database administration. Learn these later if a project or job requires them.
 
 ## Progress checklist
 
-- [ ] Part 01 — Getting Started
-- [ ] Part 02 — SQL Basics
-- [ ] Part 03 — Filtering and Sorting
-- [ ] Part 04 — Data Types and Constraints
-- [ ] Part 05 — Relationships and JOINs
-- [ ] Part 06 — Aggregation
-- [ ] Part 07 — Useful Query Techniques
-- [ ] Part 08 — Everyday Database Management
-- [ ] Part 09 — Practical Projects
-- [ ] Part 10 — PostgreSQL with Java
+- [ ] [Part 01 — Getting Started](./01-Getting-Started/README.md)
+- [ ] [Part 02 — SQL Basics](./02-SQL-Basics/README.md)
+- [ ] [Part 03 — Filtering and Sorting](./03-Filtering-and-Sorting/README.md)
+- [ ] [Part 04 — Data Types and Constraints](./04-Data-Types-and-Constraints/README.md)
+- [ ] [Part 05 — Relationships and JOINs](./05-Relationships-and-Joins/README.md)
+- [ ] [Part 06 — Aggregation](./06-Aggregation/README.md)
+- [ ] [Part 07 — Useful Query Techniques](./07-Useful-Query-Techniques/README.md)
+- [ ] [Part 08 — Everyday Database Management](./08-Everyday-Database-Management/README.md)
+- [ ] [Part 09 — Practical Projects](./09-Practical-Projects/README.md)
+- [ ] [Part 10 — PostgreSQL with Java](./10-PostgreSQL-with-Java/README.md)
 
-**Finish line:** You can complete the exercises and project tasks without following a tutorial line by line. Looking up syntax is normal, even for experienced developers.
+**Finish line:** You can solve the project requirements, explain why your queries work, and find syntax when needed. Looking up syntax is normal—even experienced developers do it.
