@@ -83,3 +83,30 @@ An employee's department_id must refer to an existing department, or be NULL bec
 - [ ] I can use UNIQUE, NOT NULL, CHECK, and DEFAULT.
 - [ ] I understand how NULL behaves with UNIQUE.
 - [ ] I can read a constraint error.
+## How to choose a data type
+
+Choose a type based on the kind of value, not just how the value looks.
+
+- Use INTEGER for counts and ordinary whole-number identifiers.
+- Use BIGINT when the possible whole-number range is much larger.
+- Use NUMERIC(12,2) for exact decimal amounts such as money.
+- Use TEXT for general text; use VARCHAR(n) when you want a maximum length.
+- Use BOOLEAN for true/false facts.
+- Use DATE for a date without a time.
+- Use TIMESTAMPTZ for a moment in time where time-zone-aware handling matters.
+
+### Constraint example in plain English
+
+`CHECK (balance >= 0)` means PostgreSQL rejects a row if its balance is negative. A constraint is a rule enforced by the database, not merely a note for the programmer.
+
+### Primary key vs UNIQUE
+
+A primary key identifies a row. A table has one primary key constraint (which may contain multiple columns). A table can have several UNIQUE constraints. A primary key cannot contain NULL. By default, PostgreSQL UNIQUE constraints allow more than one NULL because NULL values are not treated as equal; PostgreSQL also supports special NULL uniqueness options, but those are not needed for this beginner course.
+
+### Foreign key in plain English
+
+If employees.department_id references departments.department_id, PostgreSQL checks that a non-NULL department_id in employees exists in departments. This prevents an employee from pointing to a department that does not exist.
+
+### Read a constraint error
+
+If you try to insert a duplicate email, PostgreSQL reports a unique-constraint violation. If you insert a negative balance, the CHECK constraint fails. These errors mean the database protected the data. Correct the supplied value or the table design; do not remove a useful constraint just to hide the error.
