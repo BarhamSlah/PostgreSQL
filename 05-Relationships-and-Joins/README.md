@@ -153,8 +153,8 @@ If one student can take many courses and one course can have many students, putt
 
 ### Debug a JOIN
 
-1. Check that both tables exist with `\\dt`.
-2. Check their columns with `\\d employees` and `\\d departments`.
+1. Check that both tables exist with `\dt`.
+2. Check their columns with `\d employees` and `\d departments`.
 3. Confirm that the ON columns represent the same kind of identifier.
 4. Run each table's SELECT separately.
 5. Add the JOIN after confirming the individual data.
