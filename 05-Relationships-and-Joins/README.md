@@ -124,3 +124,37 @@ CREATE TABLE student_courses (
 - [ ] I can write INNER JOIN.
 - [ ] I can write LEFT JOIN.
 - [ ] I understand why unmatched rows appear as NULL.
+## Understand the relationship diagram
+
+The symbol `1` means one row; `*` means many rows. In a one-to-many relationship, the foreign key belongs in the table on the many side. Here, many employees can refer to one department.
+
+### How JOIN matches rows
+
+The ON condition tells PostgreSQL which values connect the tables:
+
+`employees.department_id = departments.department_id`
+
+For each employee, PostgreSQL looks for a department with the same department_id.
+
+### INNER JOIN vs LEFT JOIN
+
+Imagine four employees: Sara and Omar belong to Engineering, Lana belongs to Sales, and Noor has no department.
+
+- INNER JOIN returns Sara, Omar and Lana because they have a matching department.
+- LEFT JOIN returns all four employees. Noor's department columns are NULL because no matching department exists.
+
+The table written immediately after FROM is the **left table**. LEFT JOIN preserves all rows from that table.
+
+### Why many-to-many needs a junction table
+
+If one student can take many courses and one course can have many students, putting one course_id in students is not enough. A junction table stores one row for each student-course pairing. Its combined primary key prevents the same student from being enrolled in the same course twice.
+
+**Note:** The student_courses example assumes the students and courses tables already exist. Create those two parent tables before creating student_courses.
+
+### Debug a JOIN
+
+1. Check that both tables exist with `\\dt`.
+2. Check their columns with `\\d employees` and `\\d departments`.
+3. Confirm that the ON columns represent the same kind of identifier.
+4. Run each table's SELECT separately.
+5. Add the JOIN after confirming the individual data.
