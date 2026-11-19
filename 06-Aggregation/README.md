@@ -62,3 +62,30 @@ HAVING COUNT(*) >= 2;
 - [ ] I can use COUNT, SUM, AVG, MIN, and MAX.
 - [ ] I understand GROUP BY.
 - [ ] I understand WHERE vs HAVING.
+## Understand aggregate results
+
+An aggregate function takes values from multiple rows and returns a summary.
+
+Example: if ages are 18, 20 and 22, AVG(age) is 20, MIN(age) is 18 and MAX(age) is 22.
+
+### COUNT(*) vs COUNT(column)
+
+- `COUNT(*)` counts every row.
+- `COUNT(email)` counts only rows where email is not NULL.
+
+Most aggregate functions ignore NULL values. This is important when calculating averages or totals.
+
+### What GROUP BY does
+
+GROUP BY puts rows with the same grouping value into a group. The query then returns one summary row per group. For example, grouping by age and counting produces one row for each distinct age.
+
+### WHERE vs HAVING
+
+The order to remember is:
+
+`FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY`
+
+- WHERE removes individual rows before groups are calculated.
+- HAVING removes groups after the aggregate calculation.
+
+Use WHERE for conditions on individual records; use HAVING for conditions involving a group or aggregate.
