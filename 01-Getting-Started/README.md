@@ -39,16 +39,16 @@ These commands help you inspect databases, tables, schemas, users, and your conn
 
 | Command | What it does / Benefit |
 |---|---|
-| `\\l` | Lists all databases on the PostgreSQL server. |
-| `\\c postgres` | Connects you to the `postgres` database. |
-| `\\dt` | Lists tables visible in the current schema search path. |
-| `\\d table_name` | Shows a table's columns, data types, and other details. |
-| `\\dn` | Lists schemas in the current database. |
-| `\\du` | Lists PostgreSQL roles (users) and their attributes. |
-| `\\conninfo` | Shows your current connection details, such as database and user. |
-| `\\q` | Exits the psql terminal. |
-| `\\?` | Shows help for psql commands. |
-| `\\h CREATE TABLE` | Shows the SQL syntax for the `CREATE TABLE` statement. |
+| `\l` | Lists all databases on the PostgreSQL server. |
+| `\c postgres` | Connects you to the `postgres` database. |
+| `\dt` | Lists tables visible in the current schema search path. |
+| `\d table_name` | Shows a table's columns, data types, and other details. |
+| `\dn` | Lists schemas in the current database. |
+| `\du` | Lists PostgreSQL roles (users) and their attributes. |
+| `\conninfo` | Shows your current connection details, such as database and user. |
+| `\q` | Exits the psql terminal. |
+| `\?` | Shows help for psql commands. |
+| `\h CREATE TABLE` | Shows the SQL syntax for the `CREATE TABLE` statement. |
 
 **Important:** These are psql meta-commands, not SQL statements. They start with a backslash and normally do not need a semicolon.
 
@@ -76,21 +76,21 @@ CREATE DATABASE postgres_learning;
 Connect to it:
 
 ```text
-\\c postgres_learning
+\c postgres_learning
 ```
 
 ## 6. Useful extra psql commands
 
 | Command | What it does / Benefit |
 |---|---|
-| `\\! cls` | Clears the Windows terminal screen. |
-| `\\r` | Clears an unfinished SQL query from psql's buffer. |
-| `\\timing` | Turns query execution-time display on or off. |
-| `\\x` | Switches between normal and expanded row display. |
+| `\! cls` | Clears the Windows terminal screen. |
+| `\r` | Clears an unfinished SQL query from psql's buffer. |
+| `\timing` | Turns query execution-time display on or off. |
+| `\x` | Switches between normal and expanded row display. |
 
 **Do not confuse these two:**
-- `\\! cls` clears what you see on the screen.
-- `\\r` clears the unfinished SQL command you are entering.
+- `\! cls` clears what you see on the screen.
+- `\r` clears the unfinished SQL command you are entering.
 
 ## 7. Practice
 
@@ -109,7 +109,7 @@ Connect to it:
 | Password authentication failed | Make sure you enter the password for the PostgreSQL role, not your Windows account password. |
 | Connection refused | Check that the PostgreSQL server is running and that the server address and port are correct. |
 | SQL command does not run | Check that the SQL statement ends with a semicolon. |
-| Prompt shows `-#` | psql may be waiting for you to finish an unfinished SQL statement. Enter `;` to finish it or use `\\r` to clear it. |
+| Prompt shows `-#` | psql may be waiting for you to finish an unfinished SQL statement. Enter `;` to finish it or use `\r` to clear it. |
 
 ## 9. Understand what happens when you connect
 
