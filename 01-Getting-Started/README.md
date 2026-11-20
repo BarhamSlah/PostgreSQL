@@ -37,18 +37,18 @@ The prompt can look different depending on the database and role. The `#` common
 
 These commands help you inspect databases, tables, schemas, users, and your connection.
 
-| Command | What it does / Benefit |
+| Command | Simple explanation / Benefit |
 |---|---|
-| `\l` | Lists all databases on the PostgreSQL server. |
-| `\c postgres` | Connects you to the `postgres` database. |
-| `\dt` | Lists tables visible in the current schema search path. |
-| `\d table_name` | Shows a table's columns, data types, and other details. |
-| `\dn` | Lists schemas in the current database. |
-| `\du` | Lists PostgreSQL roles (users) and their attributes. |
-| `\conninfo` | Shows your current connection details, such as database and user. |
-| `\q` | Exits the psql terminal. |
-| `\?` | Shows help for psql commands. |
-| `\h CREATE TABLE` | Shows the SQL syntax for the `CREATE TABLE` statement. |
+| `\l` | Helps you see all the databases you have. |
+| `\c postgres` | Takes you to the `postgres` database so you can work inside it. |
+| `\dt` | Helps you see all the tables in your current database. |
+| `\d table_name` | Helps you see how a table is built, including its columns and data types. |
+| `\dn` | Helps you see how your database is organized. |
+| `\du` | Helps you know who can access or manage your database. |
+| `\conninfo` | Helps you check which database and user you are currently connected with. |
+| `\q` | Closes psql when you finish working. |
+| `\?` | Helps you find psql commands when you need them. |
+| `\h CREATE TABLE` | Helps you learn how to write the `CREATE TABLE` SQL command correctly. |
 
 **Important:** These are psql meta-commands, not SQL statements. They start with a backslash and normally do not need a semicolon.
 
