@@ -122,6 +122,10 @@ You → SQL Shell (psql) → PostgreSQL server → Selected database
 
 **Remember:** psql is the client you use; PostgreSQL is the database system that processes your commands.
 
+## 10. Connect psql to your database
+
+When you create a database, it is stored on the PostgreSQL server. To connect your psql terminal to that database, use the `\\c` command.
+
 ## Checklist
 
 - [ ] I can connect using SQL Shell (psql).
