@@ -1,125 +1,132 @@
 # Part 01 — Getting Started
 
-**Target time:** 2 hours  
-**Goal:** Understand PostgreSQL, connect with SQL Shell (psql), and navigate confidently.
+**Goal:** Connect to PostgreSQL and understand the essential commands.
 
-## 1. Know the tools
+## 1. Understand the tools
 
-- PostgreSQL: the database server.
-- SQL: the language for working with relational data.
-- psql: the terminal client that sends SQL to PostgreSQL.
-- pgAdmin 4: a graphical client. It is useful, but this course uses psql for hands-on practice.
+| Tool | Purpose |
+|---|---|
+| **PostgreSQL** | The database system that stores and manages your data. |
+| **SQL** | The language used to create, read, update, and delete data. |
+| **psql** | A terminal program used to send SQL commands to PostgreSQL. |
+| **pgAdmin 4** | A graphical tool for managing PostgreSQL. |
 
 ## 2. Connect using SQL Shell (psql)
 
-When SQL Shell opens, it asks for:
-- Server: usually `localhost` for a local installation.
-- Database: usually `postgres` for the first connection.
-- Port: commonly `5432`, unless you changed it.
-- Username: commonly `postgres`, unless you created another role.
-- Password: the password configured for that PostgreSQL role.
+SQL Shell asks for these connection details:
 
-Press Enter to accept a displayed default. Enter the password when prompted; psql normally does not show password characters while you type.
+| Setting | What it means |
+|---|---|
+| Server | The computer running PostgreSQL. For a local installation, usually `localhost`. |
+| Database | The database to connect to. Usually `postgres` for your first connection. |
+| Port | The PostgreSQL connection port. Usually `5432`. |
+| Username | The PostgreSQL role you want to connect as. Often `postgres`. |
+| Password | The password for that PostgreSQL role. |
 
-A successful connection gives you a prompt similar to:
+Press **Enter** to accept a displayed default. When you type your password, psql normally does not show the characters.
+
+A successful connection may show:
 
 ```text
 postgres=#
 ```
 
-The exact prompt can differ. `=#` commonly indicates a superuser; `=>` commonly indicates a normal role.
+The prompt can look different depending on the database and role. The `#` commonly indicates a superuser; `>` commonly indicates a normal role.
 
 ## 3. Essential psql commands
 
-| Command | Meaning |
+These commands help you inspect databases, tables, schemas, users, and your connection.
+
+| Command | What it does / Benefit |
 |---|---|
-| `\l` | List databases |
-| `\c postgres` | Connect to database postgres |
-| `\dt` | List tables |
-| `\d table_name` | Show table columns and details |
-| `\dn` | List schemas |
-| `\du` | List roles |
-| `\conninfo` | Show current connection |
-| `\q` | Quit psql |
-| `\?` | Help for psql commands |
-| `\h CREATE TABLE` | SQL syntax help |
+| `\\l` | Lists all databases on the PostgreSQL server. |
+| `\\c postgres` | Connects you to the `postgres` database. |
+| `\\dt` | Lists tables visible in the current schema search path. |
+| `\\d table_name` | Shows a table's columns, data types, and other details. |
+| `\\dn` | Lists schemas in the current database. |
+| `\\du` | Lists PostgreSQL roles (users) and their attributes. |
+| `\\conninfo` | Shows your current connection details, such as database and user. |
+| `\\q` | Exits the psql terminal. |
+| `\\?` | Shows help for psql commands. |
+| `\\h CREATE TABLE` | Shows the SQL syntax for the `CREATE TABLE` statement. |
 
-These are **psql meta-commands**, not SQL statements. They start with a backslash and normally do not end with a semicolon.
+**Important:** These are psql meta-commands, not SQL statements. They start with a backslash and normally do not need a semicolon.
 
-## 4. Your first SQL commands
+## 4. Essential SQL commands
 
-```sql
-SELECT version();
-SELECT current_database();
-SELECT current_user;
-SELECT now();
-```
+SQL commands let you ask PostgreSQL for information.
 
-SQL statements end with a semicolon.
+| SQL command | What it tells you |
+|---|---|
+| `SELECT version();` | Shows the installed PostgreSQL version. |
+| `SELECT current_database();` | Shows the database used by your current session. |
+| `SELECT current_user;` | Shows the role used by your current connection. |
+| `SELECT now();` | Shows the current date and time according to the server. |
 
-## 5. Create your practice database
+**Important:** SQL statements normally end with a semicolon (`;`).
+
+## 5. Create and connect to your practice database
+
+Create a database:
 
 ```sql
 CREATE DATABASE postgres_learning;
 ```
 
-Then connect to it:
+Connect to it:
 
 ```text
-\c postgres_learning
+\\c postgres_learning
 ```
 
-## Practice — do these in psql
+## 6. Useful extra psql commands
 
-1. Connect to the default `postgres` database.
-2. Display the PostgreSQL version.
+| Command | What it does / Benefit |
+|---|---|
+| `\\! cls` | Clears the Windows terminal screen. |
+| `\\r` | Clears an unfinished SQL query from psql's buffer. |
+| `\\timing` | Turns query execution-time display on or off. |
+| `\\x` | Switches between normal and expanded row display. |
+
+**Do not confuse these two:**
+- `\\! cls` clears what you see on the screen.
+- `\\r` clears the unfinished SQL command you are entering.
+
+## 7. Practice
+
+1. Connect to the `postgres` database.
+2. Check the PostgreSQL version.
 3. List all databases.
 4. Create `postgres_learning`.
 5. Connect to `postgres_learning`.
-6. Display the current database and user.
-7. Exit psql, then open it and reconnect to your practice database.
+6. Check the current database and user.
+7. Exit psql and connect again.
 
-## Common problems
+## 8. Common problems
 
-- **Password authentication failed:** check that you are using the password for the PostgreSQL role shown in the prompt. The Windows login password is not necessarily the PostgreSQL password.
-- **Connection refused:** check that the PostgreSQL server is running and that the host/port are correct.
-- **Command does not run:** SQL needs a semicolon. psql meta-commands begin with a backslash.
-- **Prompt changes to `postgres_learning-#`:** psql may be waiting for the rest of an unfinished SQL statement. Enter `;` to finish it or use `\r` to clear the query buffer.
+| Problem | What to check |
+|---|---|
+| Password authentication failed | Make sure you enter the password for the PostgreSQL role, not your Windows account password. |
+| Connection refused | Check that the PostgreSQL server is running and that the server address and port are correct. |
+| SQL command does not run | Check that the SQL statement ends with a semicolon. |
+| Prompt shows `-#` | psql may be waiting for you to finish an unfinished SQL statement. Enter `;` to finish it or use `\\r` to clear it. |
+
+## 9. Understand what happens when you connect
+
+A PostgreSQL server can contain many databases. You connect using a role (user) and select one database for your session.
+
+```text
+You → SQL Shell (psql) → PostgreSQL server → Selected database
+                         ← Query result ←
+```
+
+**Remember:** psql is the client you use; PostgreSQL is the database system that processes your commands.
 
 ## Checklist
 
-- [ ] I can connect through SQL Shell.
-- [ ] I know the difference between SQL and psql commands.
-- [ ] I can list databases and connect to one.
-- [ ] I can identify the current database and user.
-- [ ] I can exit and reconnect.
-## Understand what happens when you connect
-
-A PostgreSQL server can host many databases. A role (user) logs in to the server, and your session connects to one database. You run SQL through the psql client; psql sends it to the server and displays the result.
-
-```text
-You → SQL Shell (psql) → PostgreSQL server → selected database
-                         ← query result ←
-```
-
-**Important:** Pressing Enter at a SQL Shell connection question accepts its displayed default. It does not mean every default is always correct. The server, port, username and database must match your installation.
-
-### Read the first queries
-
-| Query | What the returned value tells you |
-|---|---|
-| `SELECT version();` | PostgreSQL version and build information |
-| `SELECT current_database();` | Database selected for this session |
-| `SELECT current_user;` | Role used by this connection |
-| `SELECT now();` | Current date and time according to the server |
-
-### Extra psql commands worth knowing
-
-| Command | Meaning |
-|---|---|
-| `\! cls` | Clear the Windows terminal screen |
-| `\r` | Clear an unfinished SQL query from psql's buffer |
-| `\timing` | Toggle query execution timing |
-| `\x` | Toggle expanded display for wide rows |
-
-Do not confuse clearing the screen (`\! cls`) with clearing an unfinished query (`\r`).
+- [ ] I can connect using SQL Shell (psql).
+- [ ] I understand the difference between PostgreSQL, SQL, and psql.
+- [ ] I can list databases and connect to a database.
+- [ ] I can list tables, schemas, and roles.
+- [ ] I can check my current connection.
+- [ ] I can exit psql and reconnect.
